@@ -1,4 +1,4 @@
-## AdventureWorks Mobile App
+# AdventureWorks Mobile App
 
 It's a Flutter Mobile application that consume a Web API made in ASP NET Core.
 
