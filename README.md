@@ -1,7 +1,3 @@
-# adventure_works_1
-
-A new Flutter application.
-
 ## Getting Started
 
 This project is a starting point for a Flutter application.
