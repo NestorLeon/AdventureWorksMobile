@@ -1,3 +1,7 @@
+## AdventureWorks Mobile App
+
+It's a Flutter Mobile application that consume a Web API made in ASP NET Core.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
