@@ -8,15 +8,15 @@ class dtoEmployee
   String OrganizationNode;
   String OrganizationLevel;
   String JobTitle;
-  DateTime BirthDate;
+  var BirthDate;
   String MaritalStatus;
   String Gender;
-  DateTime HireDate;
+  var HireDate;
   bool SalariedFlag;
   int VacationHours;
   int SickLeaveHours;
   bool CurrentFlag;
-  DateTime ModifiedDateEmployee;
+  var ModifiedDateEmployee;
   dtoPerson Person;
 
   dtoEmployee(this.BusinessEntityID, this.NationalIDNumber, this.LoginID, this.OrganizationNode,

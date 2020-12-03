@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -7,7 +6,20 @@ import 'dart:async';
 import 'dtoEmployee.dart';
 
 void main() {
-  runApp(VistaAllEmpleados());
+  runApp(App());
+}
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Mi lista de Empleados',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: VistaAllEmpleados(),
+    );
+  }
 }
 
 class VistaAllEmpleados extends StatefulWidget {
@@ -20,7 +32,7 @@ class _VistaAllEmpleadosState extends State<VistaAllEmpleados> {
   List<dtoEmployee> lstAllEmpleados = List<dtoEmployee>();
 
   Future<List<dtoEmployee>> GetAllEmpleados() async{
-    var url = 'https://192.168.0.5:5001/api/Employee';
+    var url = "https://apiadventureworks.azurewebsites.net/api/Employee";
     var response = await http.get(url).timeout(Duration(seconds: 90));
     var datosJson = jsonDecode(response.body);
 
@@ -59,10 +71,20 @@ class _VistaAllEmpleadosState extends State<VistaAllEmpleados> {
                         bottom: BorderSide(color: Colors.blue, width: 1)
                       )
                     ),
-                    child: Text(lstAllEmpleados[index].Person.FirstName + ' '
-                        + lstAllEmpleados[index].Person.LastName,
-                        style: TextStyle(fontSize: 16),
-                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(lstAllEmpleados[index].Person.FirstName + " " + lstAllEmpleados[index].Person.LastName,
+                          style: TextStyle(fontSize: 16, color: Colors.lightBlue[900]),
+                        ),
+                        Text(DateTime.parse(lstAllEmpleados[index].BirthDate).toString(),
+                          style: TextStyle(fontSize: 14, color: Colors.lightBlue[800]),
+                        ),
+                        Text("MiddleName: " + lstAllEmpleados[index].Person.MiddleName,
+                          style: TextStyle(fontSize: 14, color: Colors.lightBlue[700]),
+                        )
+                      ],
+                    )
                   );
                 },
               )
